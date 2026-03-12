@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Future of Marketing — Research Dashboard</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        bg: '#0a0a0a',
+        surface: '#141414',
+        'surface-2': '#1c1c1c',
+        'surface-3': '#242424',
+        border: '#262626',
+        'border-2': '#333',
+        accent: '#3b82f6',
+        txt: '#e5e5e5',
+        'txt-2': '#a3a3a3',
+        'txt-3': '#666',
+      },
+      fontFamily: {
+        sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'system-ui', 'sans-serif'],
+        mono: ['SF Mono', 'Fira Code', 'monospace'],
+      }
+    }
+  }
+}
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { -webkit-font-smoothing: antialiased; }
+
+  @keyframes pulse-blue {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(59,130,246,0); background: transparent; }
+    50% { box-shadow: inset 0 0 0 1px rgba(59,130,246,0.4); background: rgba(59,130,246,0.06); }
+  }
+  .highlight-row { animation: pulse-blue 0.8s ease-in-out 3; }
+
+  .finding-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.35s ease; }
+  .finding-panel.open { grid-template-rows: 1fr; }
+  .finding-panel > div { overflow: hidden; }
+
+  .cite {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.65rem;
+    color: #60a5fa;
+    background: rgba(59,130,246,0.08);
+    border: 1px solid rgba(59,130,246,0.2);
+    border-radius: 3px;
+    padding: 1px 6px;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+    vertical-align: 1px;
+  }
+  .cite:hover { background: rgba(59,130,246,0.18); border-color: rgba(59,130,246,0.5); }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #444; }
+</style>
+</head>
+<body class="bg-bg text-txt min-h-screen" x-data="dashboard()">
+
+<!-- Top gradient bar -->
+<div class="h-[2px] bg-gradient-to-r from-blue-600 via-violet-500 to-blue-600"></div>
+
+<div class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+
+  <!-- ===== HEADER ===== -->
+  <header class="mb-12 text-center">
+    <p class="text-txt-3 text-xs uppercase tracking-[0.2em] mb-3 font-medium">Research Report</p>
+    <h1 class="text-3xl sm:text-4xl font-bold tracking-tight mb-2">The Future of Marketing</h1>
+    <p class="text-txt-2 text-lg mb-6">Key Trends, Technologies &amp; Strategic Shifts &mdash; 2026&ndash;2030</p>
+    <div class="flex items-center justify-center gap-2 flex-wrap">
+      <span class="text-[0.65rem] font-semibold uppercase tracking-wider px-2.5 py-1 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20">30 sources</span>
+      <span class="text-[0.65rem] font-semibold uppercase tracking-wider px-2.5 py-1 rounded bg-violet-500/10 text-violet-400 border border-violet-500/20">Deep</span>
+      <span class="text-[0.65rem] font-semibold uppercase tracking-wider px-2.5 py-1 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">Audit 74/100</span>
+      <span class="text-txt-3 text-xs ml-1">March 12, 2026</span>
+    </div>
+  </header>
+
+  <!-- ===== STATS BAR ===== -->
+  <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-14">
+    <div class="bg-surface rounded-lg p-4 text-center border border-border">
+      <div class="text-3xl font-bold text-blue-400 mb-1">30</div>
+      <div class="text-[0.7rem] text-txt-3 uppercase tracking-wider">Sources</div>
+    </div>
+    <div class="bg-surface rounded-lg p-4 text-center border border-border">
+      <div class="text-3xl font-bold text-emerald-400 mb-1">86%</div>
+      <div class="text-[0.7rem] text-txt-3 uppercase tracking-wider">Cited Claims</div>
+    </div>
+    <div class="bg-surface rounded-lg p-4 text-center border border-border">
+      <div class="text-3xl font-bold text-emerald-400 mb-1">5/5</div>
+      <div class="text-[0.7rem] text-txt-3 uppercase tracking-wider">Coverage</div>
+    </div>
+    <div class="bg-surface rounded-lg p-4 text-center border border-border">
+      <div class="text-lg font-semibold text-txt mb-1 mt-1">Dec '24 &ndash; Mar '26</div>
+      <div class="text-[0.7rem] text-txt-3 uppercase tracking-wider">Date Range</div>
+    </div>
+    <div class="bg-surface rounded-lg p-4 text-center border border-border col-span-2 sm:col-span-1">
+      <div class="text-sm text-txt mt-1 mb-1">
+        <span class="text-blue-400 font-bold">9</span><span class="text-txt-3"> rep</span>
+        <span class="text-txt-3 mx-1">&middot;</span>
+        <span class="text-emerald-400 font-bold">19</span><span class="text-txt-3"> art</span>
+        <span class="text-txt-3 mx-1">&middot;</span>
+        <span class="text-amber-400 font-bold">2</span><span class="text-txt-3"> data</span>
+      </div>
+      <div class="text-[0.7rem] text-txt-3 uppercase tracking-wider">Source Types</div>
+    </div>
+  </div>
+
+  <!-- ===== EXECUTIVE SUMMARY ===== -->
+  <section class="mb-14">
+    <h2 class="text-xs uppercase tracking-[0.2em] text-txt-3 font-medium mb-5 pl-4 border-l-2 border-blue-500">Executive Summary</h2>
+    <div class="space-y-3">
+      <template x-for="(item, i) in execSummary" :key="i">
+        <div class="bg-surface border border-border rounded-lg p-5 hover:border-border-2 transition-colors">
+          <div class="flex gap-4">
+            <div class="w-7 h-7 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5" x-text="i + 1"></div>
+            <p class="text-[0.9rem] leading-relaxed text-txt-2" x-html="cite(item.text)"></p>
+          </div>
+        </div>
+      </template>
+    </div>
+  </section>
+
+  <!-- ===== FINDINGS EXPLORER ===== -->
+  <section class="mb-14">
+    <h2 class="text-xs uppercase tracking-[0.2em] text-txt-3 font-medium mb-5 pl-4 border-l-2 border-blue-500">Findings Explorer</h2>
+    <div class="space-y-2">
+      <template x-for="(sec, si) in sections" :key="si">
+        <div class="bg-surface border border-border rounded-lg overflow-hidden hover:border-border-2 transition-colors">
+          <button @click="toggle(si)" class="w-full flex items-center justify-between px-5 py-4 text-left group">
+            <div class="flex items-center gap-3 min-w-0">
+              <span class="font-semibold text-[0.95rem] text-txt group-hover:text-white transition-colors" x-text="sec.title"></span>
+              <span class="text-[0.6rem] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex-shrink-0" x-text="sec.coverage"></span>
+            </div>
+            <svg class="w-4 h-4 text-txt-3 flex-shrink-0 transition-transform duration-300" :class="open[si] && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="finding-panel" :class="open[si] && 'open'">
+            <div>
+              <div class="px-5 pb-5 border-t border-border">
+                <ul class="mt-4 space-y-2.5">
+                  <template x-for="(f, fi) in sec.findings" :key="fi">
+                    <li class="flex gap-2.5 text-[0.85rem] leading-relaxed text-txt-2">
+                      <span class="text-txt-3 mt-0.5 flex-shrink-0 text-[0.5rem]">&bull;</span>
+                      <span x-html="cite(f)"></span>
+                    </li>
+                  </template>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </template>
+    </div>
+  </section>
+
+  <!-- ===== KEY DATA POINTS ===== -->
+  <section class="mb-14">
+    <h2 class="text-xs uppercase tracking-[0.2em] text-txt-3 font-medium mb-5 pl-4 border-l-2 border-blue-500">Key Data Points</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+      <template x-for="(d, i) in dataPoints" :key="i">
+        <div class="bg-surface border border-border rounded-lg p-4 hover:border-border-2 transition-colors">
+          <div class="text-2xl font-bold mb-1" :style="`color: ${d.color}`" x-text="d.value"></div>
+          <div class="text-xs text-txt-3 leading-snug" x-html="cite(d.label)"></div>
+        </div>
+      </template>
+    </div>
+  </section>
+
+  <!-- ===== SOURCE REGISTRY ===== -->
+  <section class="mb-14" id="source-registry">
+    <h2 class="text-xs uppercase tracking-[0.2em] text-txt-3 font-medium mb-5 pl-4 border-l-2 border-blue-500">Source Registry</h2>
+
+    <!-- Filters -->
+    <div class="flex flex-wrap items-center gap-3 mb-4">
+      <input
+        type="text" x-model="q" placeholder="Search sources..."
+        class="bg-surface-2 border border-border rounded-md px-3 py-2 text-sm text-txt placeholder-txt-3 focus:border-accent focus:outline-none flex-1 min-w-[160px] transition-colors"
+      >
+      <div class="flex gap-1.5">
+        <template x-for="t in ['all','report','article','data']" :key="t">
+          <button
+            @click="tf = t"
+            class="text-xs px-3 py-1.5 rounded border transition-all"
+            :class="tf === t ? 'border-accent text-blue-400 bg-blue-500/10' : 'border-border text-txt-3 hover:border-border-2 hover:text-txt-2'"
+            x-text="t === 'all' ? 'All' : t.charAt(0).toUpperCase() + t.slice(1) + 's'"
+          ></button>
+        </template>
+      </div>
+      <select x-model="ss" class="bg-surface-2 border border-border rounded text-xs text-txt-3 px-2 py-1.5 focus:outline-none cursor-pointer">
+        <option value="relevance">Relevance</option>
+        <option value="date">Date</option>
+        <option value="title">Title</option>
+      </select>
+      <div class="flex items-center gap-1">
+        <span class="text-[0.65rem] text-txt-3 mr-1">Min:</span>
+        <template x-for="n in 5" :key="n">
+          <button @click="mr = (mr === n ? 1 : n)" class="text-sm leading-none transition-colors" :class="n <= mr ? 'text-amber-400' : 'text-txt-3/40'" x-text="'\u2605'"></button>
+        </template>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="bg-surface border border-border rounded-lg overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-border">
+              <th class="text-left px-4 py-3 text-[0.65rem] text-txt-3 uppercase tracking-wider font-medium">ID</th>
+              <th class="text-left px-3 py-3 text-[0.65rem] text-txt-3 uppercase tracking-wider font-medium">Title</th>
+              <th class="text-left px-3 py-3 text-[0.65rem] text-txt-3 uppercase tracking-wider font-medium hidden md:table-cell">Author</th>
+              <th class="text-left px-3 py-3 text-[0.65rem] text-txt-3 uppercase tracking-wider font-medium hidden md:table-cell">Date</th>
+              <th class="text-left px-3 py-3 text-[0.65rem] text-txt-3 uppercase tracking-wider font-medium">Type</th>
+              <th class="text-left px-4 py-3 text-[0.65rem] text-txt-3 uppercase tracking-wider font-medium">Rel</th>
+            </tr>
+          </thead>
+          <tbody>
+            <template x-for="s in filtered()" :key="s.id">
+              <tr
+                :id="s.id"
+                class="border-b border-border/50 hover:bg-surface-2 transition-colors"
+                :class="hl === s.id && 'highlight-row'"
+              >
+                <td class="px-4 py-2.5"><span class="font-mono text-[0.7rem] text-txt-3" x-text="s.id"></span></td>
+                <td class="px-3 py-2.5"><a :href="s.url" target="_blank" rel="noopener" class="text-blue-400 hover:text-blue-300 hover:underline transition-colors text-[0.85rem]" x-text="s.title"></a></td>
+                <td class="px-3 py-2.5 text-txt-3 hidden md:table-cell text-[0.85rem]" x-text="s.author"></td>
+                <td class="px-3 py-2.5 text-txt-3 hidden md:table-cell text-[0.8rem] whitespace-nowrap" x-text="fmtDate(s.date)"></td>
+                <td class="px-3 py-2.5">
+                  <span class="text-[0.6rem] font-semibold uppercase tracking-wider px-2 py-0.5 rounded"
+                    :class="s.type==='report' ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20' : s.type==='article' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'bg-amber-500/10 text-amber-400 border border-amber-500/20'"
+                    x-text="s.type"></span>
+                </td>
+                <td class="px-4 py-2.5">
+                  <div class="flex gap-0.5">
+                    <template x-for="n in 5" :key="n">
+                      <span class="text-xs" :class="n <= s.relevance ? 'text-amber-400' : 'text-txt-3/30'" x-text="'\u2605'"></span>
+                    </template>
+                  </div>
+                </td>
+              </tr>
+            </template>
+          </tbody>
+        </table>
+      </div>
+      <div class="px-4 py-2.5 border-t border-border text-[0.7rem] text-txt-3">
+        Showing <span x-text="filtered().length"></span> of 30 sources
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== AUDIT PANEL ===== -->
+  <section class="mb-14">
+    <div class="bg-surface border border-border rounded-lg overflow-hidden">
+      <button @click="auditOpen = !auditOpen" class="w-full flex items-center justify-between px-5 py-4 text-left group">
+        <div class="flex items-center gap-3">
+          <span class="font-semibold text-[0.95rem] text-txt group-hover:text-white transition-colors">Research Audit</span>
+          <span class="text-[0.6rem] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">74/100</span>
+        </div>
+        <svg class="w-4 h-4 text-txt-3 flex-shrink-0 transition-transform duration-300" :class="auditOpen && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </button>
+      <div class="finding-panel" :class="auditOpen && 'open'">
+        <div>
+          <div class="px-5 pb-5 border-t border-border">
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-x-8 gap-y-3 mt-4">
+              <div class="flex justify-between items-center py-2 border-b border-border/50">
+                <span class="text-sm text-txt-2">Citation coverage</span>
+                <span class="text-sm font-semibold text-emerald-400">86%</span>
+              </div>
+              <div class="flex justify-between items-center py-2 border-b border-border/50">
+                <span class="text-sm text-txt-2">Single-source claims</span>
+                <span class="text-sm font-semibold text-emerald-400">2</span>
+              </div>
+              <div class="flex justify-between items-center py-2 border-b border-border/50">
+                <span class="text-sm text-txt-2">Duplicates</span>
+                <span class="text-sm font-semibold text-emerald-400">0</span>
+              </div>
+              <div class="flex justify-between items-center py-2 border-b border-border/50">
+                <span class="text-sm text-txt-2">Stale sources</span>
+                <span class="text-sm font-semibold text-emerald-400">0</span>
+              </div>
+              <div class="flex justify-between items-center py-2 border-b border-border/50">
+                <span class="text-sm text-txt-2">Bias warnings</span>
+                <span class="text-sm font-semibold text-emerald-400">0</span>
+              </div>
+              <div class="flex justify-between items-center py-2 border-b border-border/50">
+                <span class="text-sm text-txt-2">Sub-questions</span>
+                <span class="text-sm font-semibold text-emerald-400">5/5 strong</span>
+              </div>
+            </div>
+            <div class="mt-4">
+              <p class="text-xs text-txt-3 mb-2">Single-source claims:</p>
+              <ul class="text-xs text-txt-3 space-y-1 pl-4 list-disc">
+                <li>AI campaign efficiency +30% (McKinsey via src-029)</li>
+                <li>K-shaped economy consumer split (src-020)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="pt-8 border-t border-border text-center">
+    <p class="text-xs text-txt-3">Prepared by Claude &middot; 30 sources consulted &middot; March 2026</p>
+  </footer>
+
+</div>
+
+<script>
+function dashboard() {
+  return {
+    q: '', tf: 'all', ss: 'relevance', mr: 1, hl: null,
+    open: {}, auditOpen: false,
+
+    sources: [
+      {id:"src-001",title:"Kantar Marketing Trends 2026",author:"Kantar",date:"2025-12-01",type:"report",relevance:5,url:"https://www.kantar.com/campaigns/marketing-trends"},
+      {id:"src-002",title:"The State of AI in Marketing 2026",author:"Jasper",date:"2026-01-15",type:"report",relevance:5,url:"https://www.jasper.ai/state-of-ai-marketing-2026"},
+      {id:"src-003",title:"9 Marketing Predictions for 2026",author:"Marketing Dive",date:"2026-01-13",type:"article",relevance:4,url:"https://www.marketingdive.com/news/marketing-predictions-for-2026/809124/"},
+      {id:"src-004",title:"8 Marketing Automation Trends for 2026",author:"Klaviyo",date:"2026-01-01",type:"article",relevance:5,url:"https://www.klaviyo.com/blog/marketing-automation-trends"},
+      {id:"src-005",title:"Third-Party Cookies in 2026",author:"OmegaTrove",date:"2026-02-01",type:"article",relevance:4,url:"https://omegatrove.com/third-party-cookies-paid-ads-2026/"},
+      {id:"src-006",title:"Google Cookie Deprecation U-Turn",author:"CookieYes",date:"2025-04-15",type:"article",relevance:4,url:"https://www.cookieyes.com/blog/google-cookie-deprecation/"},
+      {id:"src-007",title:"Global Cookie Consent Trends 2026",author:"Secure Privacy",date:"2026-01-01",type:"article",relevance:4,url:"https://secureprivacy.ai/blog/global-cookie-consent-trends-2026"},
+      {id:"src-008",title:"FAQ on Identity Resolution 2026",author:"eMarketer",date:"2026-02-01",type:"report",relevance:4,url:"https://www.emarketer.com/content/faq-on-identity-resolution-navigating-privacy-cookies-cross-channel-fragmentation-2026"},
+      {id:"src-009",title:"Future of Social Media Trends 2026",author:"Neil Patel",date:"2026-01-01",type:"article",relevance:4,url:"https://neilpatel.com/blog/social-media-trends/"},
+      {id:"src-010",title:"4 Trends Shaping Social Media Marketing",author:"Social Media Today",date:"2026-01-01",type:"article",relevance:3,url:"https://www.socialmediatoday.com/spons/4-trends-shaping-social-media-marketing-in-2026/806512/"},
+      {id:"src-011",title:"2025 Edelman Trust Barometer: Brand Trust",author:"Edelman",date:"2025-06-01",type:"report",relevance:5,url:"https://www.edelman.com/trust/2025/trust-barometer/special-report-brands"},
+      {id:"src-012",title:"Branding Statistics 2025: 98+ Stats",author:"Marketing LTB",date:"2025-01-01",type:"data",relevance:4,url:"https://marketingltb.com/blog/statistics/branding-statistics/"},
+      {id:"src-013",title:"25+ Customer Experience Stats for 2026",author:"Webex",date:"2026-01-01",type:"data",relevance:4,url:"https://blog.webex.com/customer-experience/twenty-five-customer-experience-statistics-for-2025-and-why-they-matter/"},
+      {id:"src-014",title:"Essential Skills for Marketing 2026",author:"SalesWatch",date:"2026-01-01",type:"article",relevance:3,url:"https://www.saleswatch.id/post/essential-skills-marketing-sales-professionals-must-have-in-2026-from-data-to-ai"},
+      {id:"src-015",title:"AI-First Marketing Team Structure Guide",author:"DOJO AI",date:"2026-01-01",type:"article",relevance:4,url:"https://www.dojoai.com/blog/ai-first-marketing-team-structure-guide-2025"},
+      {id:"src-016",title:"Data Privacy Marketing 2026: Cookieless Strategy",author:"Digital Applied",date:"2026-01-01",type:"article",relevance:3,url:"https://www.digitalapplied.com/blog/data-privacy-marketing-2026-cookieless-strategy"},
+      {id:"src-017",title:"AI Will Shape the Future of Marketing",author:"Harvard DCE",date:"2025-01-01",type:"article",relevance:4,url:"https://professional.dce.harvard.edu/blog/ai-will-shape-the-future-of-marketing/"},
+      {id:"src-018",title:"2026 State of Marketing Report",author:"HubSpot",date:"2026-01-01",type:"report",relevance:5,url:"https://www.hubspot.com/state-of-marketing"},
+      {id:"src-019",title:"8 Top Marketing Trends 2026",author:"Marketer Milk (Omid G)",date:"2026-02-02",type:"article",relevance:5,url:"https://www.marketermilk.com/blog/marketing-trends-2026"},
+      {id:"src-020",title:"Trends Shaping 2026 for Channel Marketers",author:"Zeta Global",date:"2026-01-15",type:"report",relevance:5,url:"https://zetaglobal.com/resource-center/channel-marketing-trends-2026/"},
+      {id:"src-021",title:"State of the AI Connected Customer",author:"Salesforce",date:"2025-01-01",type:"report",relevance:5,url:"https://www.salesforce.com/resources/research-reports/state-of-the-connected-customer/"},
+      {id:"src-022",title:"2026 Global Consumer Experience Trends",author:"Qualtrics",date:"2025-10-07",type:"report",relevance:5,url:"https://www.qualtrics.com/blog/global-consumer-trends/"},
+      {id:"src-023",title:"2025 Consumer Research Report",author:"Salsify",date:"2025-01-01",type:"report",relevance:4,url:"https://www.salsify.com/resources/report/2025-consumer-research"},
+      {id:"src-024",title:"AI Marketing Strategy 2026",author:"IT Tech Buz",date:"2025-11-28",type:"article",relevance:4,url:"https://ittechbuz.com/ai-marketing-strategy-2026/"},
+      {id:"src-025",title:"Future of Marketing Automation: 5 Trends",author:"Storyteq",date:"2025-11-04",type:"article",relevance:4,url:"https://storyteq.com/blog/the-future-of-marketing-automation-5-trends/"},
+      {id:"src-026",title:"Data Privacy Trends Shaping 2025+",author:"Usercentrics",date:"2024-12-27",type:"article",relevance:4,url:"https://usercentrics.com/knowledge-hub/data-privacy-trends/"},
+      {id:"src-027",title:"Google Will Not Deprecate Cookies",author:"JENTIS",date:"2026-01-13",type:"article",relevance:3,url:"https://www.jentis.com/blog/google-will-not-deprecate-third-party-cookies/"},
+      {id:"src-028",title:"Top Marketing Skills Employers Value 2026",author:"National University",date:"2026-03-06",type:"article",relevance:4,url:"https://www.nu.edu/blog/top-marketing-skills-for-employers/"},
+      {id:"src-029",title:"Digital Marketing Skills for 2026",author:"Brill Creations",date:"2026-01-20",type:"article",relevance:4,url:"https://brillcreations.com/the-digital-marketing-skills-every-professional-needs-in-2026/"},
+      {id:"src-030",title:"Marketing Skills For 2026",author:"Monday.com",date:"2025-12-27",type:"article",relevance:3,url:"https://monday.com/blog/marketing/marketing-skills/"}
+    ],
+
+    execSummary: [
+      {text:"AI has crossed the operational tipping point \u2014 91% of marketers actively use AI, 80% use it for content creation, and 61% say it\u2019s the biggest disruption in 20 years \u2014 but more content is now generated by AI than humans, and most of it is average [src-002, src-018]"},
+      {text:"Privacy regulation is accelerating globally \u2014 137 countries now have privacy laws covering 79.3% of the world\u2019s population, and poor consent implementation loses 40\u201360% of advertising measurement data [src-026, src-007]"},
+      {text:"Consumer trust is fragmenting \u2014 81% need to trust a brand to buy, but 64% believe companies are reckless with data, and confidence in AI customer service has declined since 2021 [src-011, src-021, src-022]"},
+      {text:"Discovery is splintering across AI agents, social platforms, and human-first media \u2014 the Google-default era is ending as companies acquire newsletters, podcasts, and creator properties [src-010, src-019, src-018]"},
+      {text:"Marketing teams are restructuring \u2014 specialists outperform generalists, marketers becoming product managers via vibe coding, and 60%+ of leaders say teams lack future-ready skills [src-019, src-029, src-002]"}
+    ],
+
+    sections: [
+      {title:"AI & Automation in Marketing", coverage:"strong \u00b7 10+ sources", findings:[
+        "91% of marketers actively use AI, up from 63% in 2025 [src-002]",
+        "80% use AI for content creation; 75% for media production [src-018]",
+        "61% say it\u2019s the biggest disruption in 20 years [src-018]",
+        "60% report 2\u20133x+ returns; 50% faster to market [src-002]",
+        "AI ROI measurement dropped 49% \u2192 41% year-over-year [src-002]",
+        "40% of enterprise interactions handled by AI agents by 2026 (Gartner) [src-024]",
+        "Agentic commerce: $1T US retail revenue by 2030 (McKinsey) [src-024]",
+        "24% already use AI shopping assistants [src-001]",
+        "\u201CAnti-AI-slop\u201D branding emerging: \u201CProudly made by humans\u201D labels [src-020]",
+        "Marketing automation \u2192 self-optimizing systems; batch-and-blast is dead [src-004, src-025]",
+        "AI campaign efficiency improvement up to 30% (McKinsey) [src-029]",
+        "75% of AI users report higher job satisfaction [src-002]"
+      ]},
+      {title:"Channel Evolution", coverage:"strong \u00b7 8+ sources", findings:[
+        "Google-default era ending; 44% prefer AI-powered search [src-010, src-024]",
+        "Retail media: 1.8x better than digital ads, 3x for purchase intent [src-001]",
+        "GEO/AEO replacing traditional SEO \u2014 ChatGPT & Perplexity cite blog articles [src-001, src-019]",
+        "Human-first media (newsletters, podcasts) becoming premium ad real estate [src-018, src-019]",
+        "HubSpot/Hustle, Semrush/Backlinko, Zapier/MakerPad acquisitions [src-019]",
+        "61% increasing creator investment but only 27% ties to brand [src-001]",
+        "Influencer trust waning \u2014 consumers question AI authenticity [src-020]",
+        "Employee-led content replacing contracted influencers (Clay, Ahrefs) [src-019]",
+        "40% trust micro-community recs equally to personal referrals [src-001]",
+        "Email/SMS becoming \u201Cblack boxes\u201D for performance reporting [src-020]",
+        "DMARC tightening; SMS spam filtering stronger [src-020]",
+        "69% engage in \u201Cambient shopping\u201D while doing other activities [src-023]"
+      ]},
+      {title:"Privacy, Cookies & Measurement", coverage:"strong \u00b7 8+ sources", findings:[
+        "Google reversed cookie deprecation April 2025 but Safari/Firefox block by default [src-006]",
+        "70% of consumers actively block cookies [src-006]",
+        "137 countries have privacy laws covering 79.3% of world population [src-026]",
+        "21+ US states with privacy laws; 9 new in 2024 alone [src-026]",
+        "Poor consent setup loses 40\u201360% of ad measurement data [src-007]",
+        "Only 23% of Consent Mode v2 implementations recover promised data [src-007]",
+        "Without Privacy Sandbox: 34% revenue drop; with it: 20% drop [src-006]",
+        "79% prefer contextual ads over behavioral targeting [src-006]",
+        "Best practice: 5\u20137 data collection points; most brands have 1\u20132 [src-004]",
+        "85% of publishers expect first-party data growth [src-016]",
+        "CNIL fined Google \u20ac90M for dark patterns in cookie consent [src-007]",
+        "Well-optimized consent achieves 200% higher acceptance rates [src-007]"
+      ]},
+      {title:"Consumer Expectations", coverage:"strong \u00b7 8+ sources", findings:[
+        "81% need to trust a brand to buy [src-011]",
+        "87% will pay more for trusted brands [src-023]",
+        "88% say authenticity matters in brand choice [src-012]",
+        "94% loyal to transparent companies [src-012]",
+        "73% treated as individuals (up from 39% in 2023) [src-021]",
+        "But 64% believe companies are reckless with data [src-021]",
+        "Only 39% trust orgs to handle data responsibly [src-022]",
+        "AI customer service confidence declined: \u221212pt convenience, +13pt \u201Cno benefits\u201D [src-022]",
+        "72% want to know if they\u2019re talking to AI [src-021]",
+        "93% lose trust over data mishandling [src-013]",
+        "54% abandoned purchases due to inconsistent content across channels [src-023]",
+        "K-shaped economy: top 10% robust, bottom 90% struggling [src-020]",
+        "53% say flashy frontend features are a waste [src-024]"
+      ]},
+      {title:"Skills & Team Structures", coverage:"strong \u00b7 7+ sources", findings:[
+        "60%+ marketing leaders say teams lack future-ready skills [src-029]",
+        "AI/ML skill demand surged +245% [src-029]",
+        "65% of teams have designated AI roles [src-002]",
+        "Specialists outperform generalists \u2014 AI makes everyone a generalist by default [src-019]",
+        "Marketers becoming product managers via vibe coding (v0, Lovable, Cursor) [src-019]",
+        "Managers \u2192 AI workflow architects; Creators \u2192 brand voice strategists [src-015]",
+        "Design taste becoming #1 marketing skill [src-019]",
+        "Adaptability ranked #1 skill globally (LinkedIn) [src-029]",
+        "Data literacy orgs outperform peers by 20% in customer acquisition [src-029]",
+        "Strategic content \u2192 2.5x higher conversion rates [src-029]",
+        "Teams becoming hybrids of marketers, engineers, and AI agents [src-015]",
+        "Marketing evolving from creative discipline to systems-thinking discipline [src-015]"
+      ]}
+    ],
+
+    dataPoints: [
+      {value:"91%", label:"Marketers using AI [src-002]", color:"#60a5fa"},
+      {value:"80%", label:"Using AI for content [src-018]", color:"#60a5fa"},
+      {value:"61%", label:"Biggest disruption in 20yr [src-018]", color:"#60a5fa"},
+      {value:"81%", label:"Need trust to buy [src-011]", color:"#fbbf24"},
+      {value:"87%", label:"Pay more for trust [src-023]", color:"#fbbf24"},
+      {value:"64%", label:"Think companies reckless with data [src-021]", color:"#f87171"},
+      {value:"137", label:"Countries with privacy laws [src-026]", color:"#4ade80"},
+      {value:"70%", label:"Actively block cookies [src-006]", color:"#f87171"},
+      {value:"40\u201360%", label:"Measurement data lost [src-007]", color:"#f87171"},
+      {value:"1.8x", label:"Retail media outperformance [src-001]", color:"#4ade80"},
+      {value:"$1T", label:"Agentic commerce by 2030 [src-024]", color:"#60a5fa"},
+      {value:"60%+", label:"Teams lack future skills [src-029]", color:"#fbbf24"},
+      {value:"+245%", label:"AI skill demand [src-029]", color:"#4ade80"},
+      {value:"65%", label:"Teams have AI roles [src-002]", color:"#60a5fa"}
+    ],
+
+    toggle(i) { this.open[i] = !this.open[i]; },
+
+    cite(text) {
+      return text.replace(/\[(src-\d{3}(?:,\s*src-\d{3})*)\]/g, (_, ids) =>
+        ids.split(/,\s*/).map(id =>
+          `<span class="cite" onclick="document.querySelector('[x-data]').__x.$data.go('${id.trim()}')">${id.trim()}</span>`
+        ).join(' ')
+      );
+    },
+
+    go(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      this.hl = null;
+      el.scrollIntoView({behavior:'smooth', block:'center'});
+      setTimeout(() => {
+        this.hl = id;
+        setTimeout(() => this.hl = null, 2500);
+      }, 400);
+    },
+
+    fmtDate(d) {
+      return new Date(d).toLocaleDateString('en-US', {year:'numeric', month:'short'});
+    },
+
+    filtered() {
+      let l = [...this.sources];
+      if (this.tf !== 'all') l = l.filter(s => s.type === this.tf);
+      if (this.mr > 1) l = l.filter(s => s.relevance >= this.mr);
+      if (this.q.trim()) {
+        const k = this.q.toLowerCase();
+        l = l.filter(s => s.title.toLowerCase().includes(k) || s.author.toLowerCase().includes(k));
+      }
+      if (this.ss === 'relevance') l.sort((a,b) => b.relevance - a.relevance);
+      else if (this.ss === 'date') l.sort((a,b) => new Date(b.date) - new Date(a.date));
+      else l.sort((a,b) => a.title.localeCompare(b.title));
+      return l;
+    }
+  };
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,575 @@
+{
+  "metadata": {
+    "research_question": "What are the key trends, technologies, and strategic shifts that will define marketing over the next 3-5 years?",
+    "slug": "future-of-marketing",
+    "created": "2026-03-12",
+    "depth": "deep",
+    "sub_questions": [
+      "How is AI/automation reshaping marketing workflows and content creation?",
+      "What is happening to traditional channels and what new channels are emerging?",
+      "How are privacy regulations and cookie changes affecting targeting and measurement?",
+      "What do consumers expect from brands now vs 3 years ago?",
+      "What skills and team structures will marketing departments need?"
+    ]
+  },
+  "sources": [
+    {
+      "id": "src-001",
+      "title": "Kantar Marketing Trends 2026",
+      "author": "Kantar (Jane Ostler et al.)",
+      "date": "2025-12-01",
+      "url": "https://www.kantar.com/campaigns/marketing-trends",
+      "type": "report",
+      "relevance": 5,
+      "key_findings": [
+        "24% of AI users already using an AI shopping assistant",
+        "74% of regular AI users seek AI-driven recommendations",
+        "Net 61% of marketers plan to increase creator investment in 2026",
+        "Only 27% of creator content ties strongly to brand",
+        "65% of consumers value companies promoting diversity/inclusion, up from 59% in 2021",
+        "Retail media delivers 1.8x better results than digital ads, 3x for purchase intent",
+        "Nearly 40% of consumers trust micro-community recommendations equally to personal referrals",
+        "Generative Engine Optimization (GEO) replacing traditional SEO"
+      ],
+      "quotes": [
+        {"text": "AI agents will increasingly mediate purchase decisions", "context": "Trend 1: Agents of Change"}
+      ],
+      "accessed": "2026-03-12"
+    },
+    {
+      "id": "src-002",
+      "title": "Report: The State of AI in Marketing 2026",
+      "author": "Jasper",
+      "date": "2026-01-15",
+      "url": "https://www.jasper.ai/state-of-ai-marketing-2026",
+      "type": "report",
+      "relevance": 5,
+      "key_findings": [
+        "91% of marketers actively use AI in their work, up from 63% in 2025",
+        "60% of organizations report AI returns of 2-3x or higher",
+        "65% of marketing teams have designated AI roles",
+        "50% are bringing work to market faster with AI",
+        "75% of AI users report higher job satisfaction",
+        "45% have lowered operating costs through AI",
+        "41% can currently measure AI ROI, down from 49% in 2025"
+      ],
+      "quotes": [
+        {"text": "The industry has transitioned from 'Should we use AI?' to 'How do we operationalize it at scale?'", "context": "Key insight"}
+      ],
+      "accessed": "2026-03-12"
+    },
+    {
+      "id": "src-003",
+      "title": "9 Marketing Predictions for 2026 as AI Fuels Polarity",
+      "author": "Marketing Dive (Peter Adams et al.)",
+      "date": "2026-01-13",
+      "url": "https://www.marketingdive.com/news/marketing-predictions-for-2026/809124/",
+      "type": "article",
+      "relevance": 4,
+      "key_findings": [
+        "AI fueling polarity in marketing approaches",
+        "2026 is the year marketers become expert in AI after experimenting in 2025"
+      ],
+      "quotes": [],
+      "accessed": "2026-03-12"
+    },
+    {
+      "id": "src-004",
+      "title": "8 Marketing Automation Trends for 2026: AI, Privacy, & Personalization",
+      "author": "Klaviyo",
+      "date": "2026-01-01",
+      "url": "https://www.klaviyo.com/blog/marketing-automation-trends",
+      "type": "article",
+      "relevance": 5,
+      "key_findings": [
+        "AI transitioning from experimental tool to essential marketing copilot",
+        "Marketing automation shifting from scheduled workflows to self-optimizing systems",
+        "Privacy-first personalization becoming competitive advantage",
+        "Best practice is 5-7 zero/first-party data collection points; most brands have only 1-2",
+        "Relevance across touchpoints matters more than hyper-personalization in every channel",
+        "Authenticity becomes key differentiator as AI becomes ubiquitous"
+      ],
+      "quotes": [],
+      "accessed": "2026-03-12"
+    },
+    {
+      "id": "src-005",
+      "title": "Third-Party Cookies in 2026: The Complete Guide for Advertisers",
+      "author": "OmegaTrove",
+      "date": "2026-02-01",
+      "url": "https://omegatrove.com/third-party-cookies-paid-ads-2026/",
+      "type": "article",
+      "relevance": 4,
+      "key_findings": [
+        "Google Chrome completing phased cookie deprecation via Privacy Sandbox, full impact expected 2026",
+        "Third-party cookies not inherently illegal but require explicit user consent under GDPR/CCPA",
+        "Retargeting evolving toward first-party data, CRM-based audiences, and AI-driven probabilistic modeling",
+        "Privacy Sandbox APIs (Topics, Protected Audience) enable interest-based ads without individual tracking"
+      ],
+      "quotes": [],
+      "accessed": "2026-03-12"
+    },
+    {
+      "id": "src-006",
+      "title": "Google Cookie Deprecation U-Turn: What's Next for Marketers?",
+      "author": "CookieYes",
+      "date": "2025-04-15",
+      "url": "https://www.cookieyes.com/blog/google-cookie-deprecation/",
+      "type": "article",
+      "relevance": 4,
+      "key_findings": [
+        "Google announced in April 2025 it is no longer proceeding with immediate standalone deprecation of third-party cookies",
+        "Chrome will continue to offer users third-party cookie choice through existing privacy settings",
+        "Safari and Firefox already block third-party cookies by default",
+        "Without Privacy Sandbox, removing cookies caused 34% revenue drop for Ad Manager publishers",
+        "With Privacy Sandbox active, losses decreased to 20%",
+        "70% of consumers actively block cookies online",
+        "79% of consumers prefer contextual ads over behavioral targeting",
+        "60% of marketers plan to adopt identity resolution solutions"
+      ],
+      "quotes": [],
+      "accessed": "2026-03-12"
+    },
+    {
+      "id": "src-007",
+      "title": "Global Cookie Consent Trends 2026",
+      "author": "Secure Privacy",
+      "date": "2026-01-01",
+      "url": "https://secureprivacy.ai/blog/global-cookie-consent-trends-2026",
+      "type": "article",
+      "relevance": 4,
+      "key_findings": [
+        "Eight new US state privacy laws took effect in 2025 (Delaware, Iowa, Nebraska, New Hampshire, Tennessee, Minnesota, Maryland, New Jersey)",
+        "Indiana, Kentucky, and Rhode Island privacy laws following on January 1 2026",
+        "2026 cookie consent features mandatory one-click reject buttons with equal visual prominence",
+        "67% of Google Consent Mode v2 implementations have technical errors",
+        "Only 23% of Consent Mode v2 implementations recover the promised 65% of lost measurement data",
+        "Poor cookie consent setup loses 40-60% of advertising measurement data",
+        "Well-optimized consent designs achieve 200% higher acceptance rates versus defaults",
+        "France's CNIL fined Google 90 million euros for asymmetric cookie rejection difficulty"
+      ],
+      "quotes": [
+        {"text": "Consent becomes a competitive moat protecting data-driven business models", "context": "Key insight on consent optimization"}
+      ],
+      "accessed": "2026-03-12"
+    },
+    {
+      "id": "src-008",
+      "title": "FAQ on Identity Resolution: Navigating Privacy, Cookies, and Cross-Channel Fragmentation in 2026",
+      "author": "eMarketer/EMARKETER",
+      "date": "2026-02-01",
+      "url": "https://www.emarketer.com/content/faq-on-identity-resolution-navigating-privacy-cookies-cross-channel-fragmentation-2026",
+      "type": "report",
+      "relevance": 4,
+      "key_findings": [
+        "Identity resolution across channels becoming critical challenge in 2026",
+        "Cross-channel fragmentation increasing as privacy regulations tighten"
+      ],
+      "quotes": [],
+      "accessed": "2026-03-12"
+    },
+    {
+      "id": "src-009",
+      "title": "The Future of Social Media Trends in 2026",
+      "author": "Neil Patel",
+      "date": "2026-01-01",
+      "url": "https://neilpatel.com/blog/social-media-trends/",
+      "type": "article",
+      "relevance": 4,
+      "key_findings": [
+        "Social media is where people search, learn, compare, and decide what brands they trust",
+        "TikTok, YouTube and Reddit are go-to sources for how-to guides, reviews and explanations",
+        "User-generated content remains a key advertising strategy for 2026",
+        "Specialization and microcommunities are key trends"
+      ],
+      "quotes": [],
+      "accessed": "2026-03-12"
+    },
+    {
+      "id": "src-010",
+      "title": "4 Trends Shaping Social Media Marketing in 2026",
+      "author": "Social Media Today",
+      "date": "2026-01-01",
+      "url": "https://www.socialmediatoday.com/spons/4-trends-shaping-social-media-marketing-in-2026/806512/",
+      "type": "article",
+      "relevance": 3,
+      "key_findings": [
+        "Era of the Google-default mindset is over",
+        "Discovery now happening across platforms, feeds, and AI systems",
+        "AI agents at scale emerging where consumers brief their own agents for products/services"
+      ],
+      "quotes": [],
+      "accessed": "2026-03-12"
+    },
+    {
+      "id": "src-011",
+      "title": "2025 Edelman Trust Barometer Special Report: Brand Trust",
+      "author": "Edelman",
+      "date": "2025-06-01",
+      "url": "https://www.edelman.com/trust/2025/trust-barometer/special-report-brands",
+      "type": "report",
+      "relevance": 5,
+      "key_findings": [
+        "81% of consumers say they need to trust a brand to buy from it",
+        "80% of people trust brands they use, more than business, media, government, NGOs, or employers",
+        "Consumers want economic hope and personal stability from brands",
+        "Consumers look to brands for safety, calm, confidence, inspiration, optimism, education, and community"
+      ],
+      "quotes": [],
+      "accessed": "2026-03-12"
+    },
+    {
+      "id": "src-012",
+      "title": "Branding Statistics 2025: 98+ Stats & Insights",
+      "author": "Marketing LTB",
+      "date": "2025-01-01",
+      "url": "https://marketingltb.com/blog/statistics/branding-statistics/",
+      "type": "data",
+      "relevance": 4,
+      "key_findings": [
+        "94% of consumers loyal to companies transparent with their practices",
+        "88% of consumers say authenticity is important when deciding what brands they like",
+        "73% of people say trust in a brand increases if it authentically reflects today's culture",
+        "90% of consumers consider transparency essential when choosing a brand"
+      ],
+      "quotes": [],
+      "accessed": "2026-03-12"
+    },
+    {
+      "id": "src-013",
+      "title": "25+ Customer Experience Stats for 2026",
+      "author": "Webex",
+      "date": "2026-01-01",
+      "url": "https://blog.webex.com/customer-experience/twenty-five-customer-experience-statistics-for-2025-and-why-they-matter/",
+      "type": "data",
+      "relevance": 4,
+      "key_findings": [
+        "77% of people choose or pay more for brands providing personalized experiences",
+        "73% of consumers prefer brands that personalize their shopping experience",
+        "53% of consumers think sharing personal data is worth it for smoother brand experience",
+        "93% say a brand will lose their trust if personal data is mishandled",
+        "71% of B2C and 86% of B2B customers expect brands to know their personal data during interactions"
+      ],
+      "quotes": [],
+      "accessed": "2026-03-12"
+    },
+    {
+      "id": "src-014",
+      "title": "Essential Skills Marketing Professionals Must Have in 2026",
+      "author": "SalesWatch",
+      "date": "2026-01-01",
+      "url": "https://www.saleswatch.id/post/essential-skills-marketing-sales-professionals-must-have-in-2026-from-data-to-ai",
+      "type": "article",
+      "relevance": 3,
+      "key_findings": [
+        "AI literacy, content strategy, SEO, data literacy, and paid media are top skills for 2026",
+        "Data literacy extends beyond dashboards to interpreting data within business goals context",
+        "AI fluency means structuring prompts, evaluating outputs critically, and integrating AI into processes"
+      ],
+      "quotes": [],
+      "accessed": "2026-03-12"
+    },
+    {
+      "id": "src-015",
+      "title": "AI-First Marketing Team Structure Guide 2026",
+      "author": "DOJO AI",
+      "date": "2026-01-01",
+      "url": "https://www.dojoai.com/blog/ai-first-marketing-team-structure-guide-2025",
+      "type": "article",
+      "relevance": 4,
+      "key_findings": [
+        "Teams will be hybrid of marketers, engineers, and AI agents working together",
+        "Marketing becoming a systems-thinking discipline",
+        "Marketing managers become AI workflow architects",
+        "Content creators evolve into brand voice strategists",
+        "Analysts transform into insight interpreters guiding AI decision-making"
+      ],
+      "quotes": [],
+      "accessed": "2026-03-12"
+    },
+    {
+      "id": "src-016",
+      "title": "Data Privacy Marketing 2026: Cookieless Strategy",
+      "author": "Digital Applied",
+      "date": "2026-01-01",
+      "url": "https://www.digitalapplied.com/blog/data-privacy-marketing-2026-cookieless-strategy",
+      "type": "article",
+      "relevance": 3,
+      "key_findings": [
+        "71% of publishers in Q1 2025 recognized first-party data as key source of positive ad results",
+        "85% of publishers expect first-party data role in monetization to increase in 2026",
+        "Server-side tracking, enhanced conversions, and first-party data are primary cookieless measurement infrastructure"
+      ],
+      "quotes": [],
+      "accessed": "2026-03-12"
+    },
+    {
+      "id": "src-017",
+      "title": "AI Will Shape the Future of Marketing",
+      "author": "Harvard DCE",
+      "date": "2025-01-01",
+      "url": "https://professional.dce.harvard.edu/blog/ai-will-shape-the-future-of-marketing/",
+      "type": "article",
+      "relevance": 4,
+      "key_findings": [
+        "AI marketing is about using AI to execute faster, test more variations, and personalize at scale",
+        "Human strategists focus on messaging, positioning, and customer understanding",
+        "Significant gap between individual enthusiasm for AI and organizational readiness"
+      ],
+      "quotes": [],
+      "accessed": "2026-03-12"
+    },
+    {
+      "id": "src-018",
+      "title": "2026 State of Marketing Report",
+      "author": "HubSpot",
+      "date": "2026-01-01",
+      "url": "https://www.hubspot.com/state-of-marketing",
+      "type": "report",
+      "relevance": 5,
+      "key_findings": [
+        "61% of marketers believe marketing is experiencing its biggest disruption in 20 years due to AI",
+        "80% of marketers use AI for content creation; 75% use it for media production",
+        "AI is table stakes — the gap is how well you use it, not whether you use it",
+        "Content moving to gated spaces AI hasn't overrun: newsletters, podcasts, YouTube",
+        "Brand POV is the new growth engine as AI floods market with average content",
+        "Human-led marketing wins trust and revenue"
+      ],
+      "quotes": [
+        {"text": "Today, more content is generated by AI than by humans. But it's mostly average. Consumers seek human-created content, and will tune out brand and AI-generated content.", "context": "Kieran Flanagan, SVP of Marketing at HubSpot"}
+      ],
+      "accessed": "2026-03-12"
+    },
+    {
+      "id": "src-019",
+      "title": "8 Top Marketing Trends I'm Seeing in 2026",
+      "author": "Marketer Milk (Omid G)",
+      "date": "2026-02-02",
+      "url": "https://www.marketermilk.com/blog/marketing-trends-2026",
+      "type": "article",
+      "relevance": 5,
+      "key_findings": [
+        "Specialists become more valuable than generalists — AI makes everyone a generalist by default",
+        "Marketers becoming product managers via vibe coding tools (v0, Lovable, Cursor)",
+        "SEO blogging making comeback for AEO (AI Engine Optimization) — ChatGPT and Perplexity cite blog articles",
+        "Companies leveraging employees as internal influencers (Clay, Ahrefs)",
+        "Design taste becoming the #1 marketing skill",
+        "Human-first media (newsletters, podcasts) becoming top ad real estate",
+        "Companies acquiring media businesses (HubSpot/The Hustle, Semrush/Backlinko, Zapier/MakerPad)",
+        "Network effects as marketing moat — distribution embedded into products"
+      ],
+      "quotes": [
+        {"text": "The days of optimizing for algorithms and running the same marketing campaigns over and over are done.", "context": "Opening thesis"},
+        {"text": "AI has leveled the playing field. Everyone by default is a generalist.", "context": "On specialist value"}
+      ],
+      "accessed": "2026-03-12"
+    },
+    {
+      "id": "src-020",
+      "title": "The Trends Shaping 2026 for Channel Marketers",
+      "author": "Zeta Global",
+      "date": "2026-01-15",
+      "url": "https://zetaglobal.com/resource-center/channel-marketing-trends-2026/",
+      "type": "report",
+      "relevance": 5,
+      "key_findings": [
+        "Email/SMS platforms becoming black boxes for performance reporting — brands must shift to cross-channel KPIs",
+        "Agent Optimization (AO): brands must optimize for AI agents that screen content before humans see it",
+        "SMS spam filtering getting much stronger (Apple Messages now has spam folder)",
+        "Influencer popularity waning — consumers recognize paid placements and question AI authenticity",
+        "JSON brand profiles replacing traditional brand guidelines for AI-driven creative generation",
+        "Anti-AI-slop branding emerging: 'Proudly made by humans' labels",
+        "K-shaped economy forcing more thoughtful segmentation — top 10% spending robustly, bottom 90% struggling"
+      ],
+      "quotes": [
+        {"text": "Creative assets will stop being 'files' and start behaving like data objects. They'll be scored, versioned, dynamically assembled, and optimized against outcomes, not opinions.", "context": "Jason Witt on creative evolution"}
+      ],
+      "accessed": "2026-03-12"
+    },
+    {
+      "id": "src-021",
+      "title": "State of the AI Connected Customer",
+      "author": "Salesforce",
+      "date": "2025-01-01",
+      "url": "https://www.salesforce.com/resources/research-reports/state-of-the-connected-customer/",
+      "type": "report",
+      "relevance": 5,
+      "key_findings": [
+        "73% of customers say companies treat them as an individual, up from 39% in 2023",
+        "71% of customers feel increasingly protective of their personal information",
+        "61% say AI advancements make it more important for companies to be trustworthy",
+        "64% believe companies are reckless with customer data",
+        "72% say it is important to know whether they are communicating with an AI agent",
+        "46% of business buyers would use AI agents for faster service but only 17% trust them for financial decisions"
+      ],
+      "quotes": [],
+      "accessed": "2026-03-12"
+    },
+    {
+      "id": "src-022",
+      "title": "2026 Global Consumer Experience Trends",
+      "author": "Qualtrics",
+      "date": "2025-10-07",
+      "url": "https://www.qualtrics.com/blog/global-consumer-trends/",
+      "type": "report",
+      "relevance": 5,
+      "key_findings": [
+        "Satisfied customers 4.1x more likely to recommend, 3.8x more likely to trust, 2.3x more likely to increase spending",
+        "1 in 2 bad experiences leads customers to cut spend",
+        "Consumer confidence in AI customer service declined since 2021: 12-point decrease in convenience, 13-point increase in 'no benefits'",
+        "64% desire tailored experiences but only 41% believe privacy trade-offs are justified",
+        "Only 39% trust organizations to handle personal data responsibly",
+        "Only 16% comfortable with device listening/watching for personalization",
+        "46% would share information if companies demonstrated transparency about data collection"
+      ],
+      "quotes": [
+        {"text": "AI delivers best when it's in a supporting role to human customer service agents — and not replacing them.", "context": "Key finding on AI in CX"}
+      ],
+      "accessed": "2026-03-12"
+    },
+    {
+      "id": "src-023",
+      "title": "2025 Consumer Research Report",
+      "author": "Salsify",
+      "date": "2025-01-01",
+      "url": "https://www.salsify.com/resources/report/2025-consumer-research",
+      "type": "report",
+      "relevance": 4,
+      "key_findings": [
+        "87% of shoppers will pay more for products from brands they trust",
+        "54% of shoppers abandoned purchases due to inconsistent product content across channels",
+        "71% made returns because products did not match online listings",
+        "69% of consumers engage in ambient shopping — purchasing while engaged in other activities"
+      ],
+      "quotes": [],
+      "accessed": "2026-03-12"
+    },
+    {
+      "id": "src-024",
+      "title": "AI Marketing Strategy 2026",
+      "author": "IT Tech Buz",
+      "date": "2025-11-28",
+      "url": "https://ittechbuz.com/ai-marketing-strategy-2026/",
+      "type": "article",
+      "relevance": 4,
+      "key_findings": [
+        "By 2026, 40% of enterprise interactions will be handled by autonomous AI agents (Gartner)",
+        "Agentic commerce could orchestrate up to $1 trillion in US retail revenue by 2030 (McKinsey)",
+        "44% of users prefer AI-powered search over traditional methods",
+        "Brands delivering excellent buyer experiences close deals 31% faster, saving nearly 4 months",
+        "59% of consumers concerned about data going to foreign entities",
+        "53% of shoppers say flashy frontend features are a waste of money"
+      ],
+      "quotes": [],
+      "accessed": "2026-03-12"
+    },
+    {
+      "id": "src-025",
+      "title": "The Future of Marketing Automation: 5 Trends Reshaping 2026",
+      "author": "Storyteq",
+      "date": "2025-11-04",
+      "url": "https://storyteq.com/blog/the-future-of-marketing-automation-5-trends/",
+      "type": "article",
+      "relevance": 4,
+      "key_findings": [
+        "Batch-and-blast marketing is dead — replaced by true omnichannel orchestration",
+        "AI-powered predictive analytics moving from rule-based to ML-based customer behavior prediction",
+        "Hyper-personalization at individual level using real-time behavioral data",
+        "No-code marketing automation democratizing martech, removing IT dependencies"
+      ],
+      "quotes": [],
+      "accessed": "2026-03-12"
+    },
+    {
+      "id": "src-026",
+      "title": "Data Privacy Trends Shaping 2025 and the Years Ahead",
+      "author": "Usercentrics",
+      "date": "2024-12-27",
+      "url": "https://usercentrics.com/knowledge-hub/data-privacy-trends/",
+      "type": "article",
+      "relevance": 4,
+      "key_findings": [
+        "137 countries now have national data privacy laws, covering 79.3% of world population (6.3 billion people)",
+        "US passed record 9 state-level privacy regulations in 2024, bringing total to 21 states",
+        "Noncompliance shifted from abstract regulatory risk to concrete business risk: advertising revenue at risk",
+        "DMA gatekeepers (Alphabet, Amazon, Apple, ByteDance, Meta, Microsoft) forcing new privacy/consent requirements across platform ecosystems"
+      ],
+      "quotes": [
+        {"text": "The idea of 'noncompliance' stopped being complicated yet nebulous and became 'your advertising revenue is at risk.'", "context": "On the shift in privacy enforcement"}
+      ],
+      "accessed": "2026-03-12"
+    },
+    {
+      "id": "src-027",
+      "title": "Google Will Not Deprecate Third-Party Cookies: What It Means for Digital Marketers",
+      "author": "JENTIS",
+      "date": "2026-01-13",
+      "url": "https://www.jentis.com/blog/google-will-not-deprecate-third-party-cookies/",
+      "type": "article",
+      "relevance": 3,
+      "key_findings": [
+        "Google will not introduce a separate consent prompt for cookies — users manage preferences through existing settings",
+        "Parallel to Apple's ATT which generated low consent rates and significant data loss",
+        "Third-party cookies are steadily becoming obsolete regardless of Google's decision",
+        "Server-side tracking and first-party data collection positioned as superior alternatives"
+      ],
+      "quotes": [],
+      "accessed": "2026-03-12"
+    },
+    {
+      "id": "src-028",
+      "title": "Top Marketing Skills Employers Value in 2026",
+      "author": "National University",
+      "date": "2026-03-06",
+      "url": "https://www.nu.edu/blog/top-marketing-skills-for-employers/",
+      "type": "article",
+      "relevance": 4,
+      "key_findings": [
+        "Data literacy and marketing analytics (GA4, KPI tracking) are foundational skills",
+        "AI Search Optimization (AIO) — structuring content to appear in AI overviews — is a new required skill",
+        "Customer experience and journey mapping now explicit marketing competencies",
+        "Cross-functional collaboration across Sales, Product, and Data teams is essential",
+        "Adaptability and lifelong learning treated as foundational meta-skill"
+      ],
+      "quotes": [],
+      "accessed": "2026-03-12"
+    },
+    {
+      "id": "src-029",
+      "title": "The Digital Marketing Skills Every Professional Needs in 2026",
+      "author": "Brill Creations",
+      "date": "2026-01-20",
+      "url": "https://brillcreations.com/the-digital-marketing-skills-every-professional-needs-in-2026/",
+      "type": "article",
+      "relevance": 4,
+      "key_findings": [
+        "Over 60% of marketing leaders believe their teams lack critical future-ready skills",
+        "AI literacy will be as fundamental as knowing how to write a brief or analyze a campaign report",
+        "Companies using AI-informed marketing strategies increased campaign efficiency by up to 30% (McKinsey)",
+        "Organizations prioritizing data literacy outperform peers by 20% in customer acquisition efficiency (Gartner)",
+        "Companies prioritizing strategic content see 2.5x higher conversion rates (HubSpot)",
+        "Ethical marketing and trust building now explicitly a marketing skill",
+        "Adaptability ranked as single most important skill globally (LinkedIn Future of Skills)"
+      ],
+      "quotes": [],
+      "accessed": "2026-03-12"
+    },
+    {
+      "id": "src-030",
+      "title": "Marketing Skills For 2026: Data, AI, Strategy, And More",
+      "author": "Monday.com",
+      "date": "2025-12-27",
+      "url": "https://monday.com/blog/marketing/marketing-skills/",
+      "type": "article",
+      "relevance": 3,
+      "key_findings": [
+        "AI has become a fundamental requirement for competitive marketing teams",
+        "Skills organized into 6 categories: Digital/Technical, Data/Analytics, AI/Automation, Creative/Content, Strategic/Leadership, Interpersonal",
+        "Privacy regulations and cookie deprecation have made first-party data skills more valuable than ever",
+        "The gap between execution and impact often comes down to skills not part of the original marketing playbook"
+      ],
+      "quotes": [],
+      "accessed": "2026-03-12"
+    }
+  ]
+}
